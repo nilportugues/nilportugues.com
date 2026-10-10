@@ -20,35 +20,30 @@
     try { localStorage.setItem('theme', next); } catch (e) {}
   });
 
-  // Rotating words in the headline
-  var rot = document.querySelector('.rotator');
-  if (rot && !reduced) {
-    var words = rot.getAttribute('data-words').split('|');
+  // Rotating words in the headline (all words share one grid cell, so the layout never shifts)
+  var words = document.querySelectorAll('.rotator .word');
+  if (words.length > 1 && !reduced) {
     var i = 0;
     setInterval(function () {
+      words[i].classList.remove('on');
       i = (i + 1) % words.length;
-      rot.innerHTML = '<span class="word grad-text">' + words[i] + '</span>';
+      words[i].classList.add('on');
     }, 2400);
   }
 
-  // Count-up numbers
-  function countUp(el) {
-    var target = parseFloat(el.getAttribute('data-count'));
-    var suffix = el.getAttribute('data-suffix') || '';
-    var prefix = el.getAttribute('data-prefix') || '';
-    if (reduced) { el.textContent = prefix + target + suffix; return; }
-    var start = null;
-    function step(ts) {
-      if (!start) start = ts;
-      var p = Math.min((ts - start) / 1400, 1);
-      var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = prefix + Math.round(target * eased) + suffix;
-      if (p < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
+  // Reserve the final height of the typed answer up front
+  document.querySelectorAll('.msg.bot .typed').forEach(function (el) {
+    var wrap = document.createElement('span');
+    wrap.className = 'typed-wrap';
+    var ghost = document.createElement('span');
+    ghost.className = 'ghost';
+    ghost.setAttribute('aria-hidden', 'true');
+    ghost.textContent = el.getAttribute('data-text');
+    el.parentNode.insertBefore(wrap, el);
+    wrap.appendChild(ghost);
+    wrap.appendChild(el);
+  });
 
-  // Typing chat answer
   function typeChat(msg) {
     var el = msg.querySelector('.typed');
     var text = el.getAttribute('data-text');
@@ -78,5 +73,13 @@
       });
     }, { threshold: 0.18 });
     targets.forEach(function (el) { io.observe(el); });
+  }
+
+  // Pause decorative animations when they are not visible
+  if ('IntersectionObserver' in window) {
+    var po = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { e.target.classList.toggle('offscreen', !e.isIntersecting); });
+    });
+    document.querySelectorAll('.hero, .marquee, .pipeline').forEach(function (el) { po.observe(el); });
   }
 })();
