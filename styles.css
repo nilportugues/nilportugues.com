@@ -229,8 +229,7 @@ p { margin: 0 0 16px; }
 .reveal.in { opacity: 1; transform: none; }
 
 /* ---------- Leadership principles ---------- */
-.expertise { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-@media (max-width: 900px) { .expertise { grid-template-columns: repeat(2, 1fr); } }
+.expertise { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 @media (max-width: 580px) { .expertise { grid-template-columns: 1fr; } }
 .xcard {
   position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 24px;
