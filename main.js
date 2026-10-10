@@ -46,6 +46,14 @@
     }, 700);
   }
 
+  // Jumping to a section shouldn't make content pop in after landing
+  function revealAll() { root.classList.add('no-reveal'); }
+  if (location.hash) revealAll();
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest && e.target.closest('a[href^="#"]');
+    if (link) revealAll();
+  });
+
   // Reveal on scroll
   var targets = document.querySelectorAll('.reveal, .gantt, .bars, .msg.bot');
   if (!('IntersectionObserver' in window)) {
