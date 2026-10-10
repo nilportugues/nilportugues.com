@@ -20,17 +20,6 @@
     try { localStorage.setItem('theme', next); } catch (e) {}
   });
 
-  // Rotating words in the headline (all words share one grid cell, so the layout never shifts)
-  var words = document.querySelectorAll('.rotator .word');
-  if (words.length > 1 && !reduced) {
-    var i = 0;
-    setInterval(function () {
-      words[i].classList.remove('on');
-      i = (i + 1) % words.length;
-      words[i].classList.add('on');
-    }, 2400);
-  }
-
   // Reserve the final height of the typed answer up front
   document.querySelectorAll('.msg.bot .typed').forEach(function (el) {
     var wrap = document.createElement('span');
@@ -58,7 +47,7 @@
   }
 
   // Reveal on scroll
-  var targets = document.querySelectorAll('.reveal, .gantt, .evo, .bars, [data-count], .msg.bot');
+  var targets = document.querySelectorAll('.reveal, .gantt, .bars, .msg.bot');
   if (!('IntersectionObserver' in window)) {
     targets.forEach(function (el) { el.classList.add('in'); });
   } else {
@@ -67,7 +56,6 @@
         if (!entry.isIntersecting) return;
         var el = entry.target;
         el.classList.add('in');
-        if (el.hasAttribute('data-count')) countUp(el);
         if (el.classList.contains('msg') && el.classList.contains('bot')) typeChat(el);
         io.unobserve(el);
       });
@@ -80,6 +68,6 @@
     var po = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { e.target.classList.toggle('offscreen', !e.isIntersecting); });
     });
-    document.querySelectorAll('.hero, .marquee, .pipeline').forEach(function (el) { po.observe(el); });
+    document.querySelectorAll('.hero, .pipeline').forEach(function (el) { po.observe(el); });
   }
 })();
