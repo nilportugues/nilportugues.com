@@ -1,3 +1,15 @@
 # Local CV files, not published
 cv/
 cv.pdf
+
+# Blog tooling: drafts are private until reviewed and moved to blog/posts/
+blog/drafts/
+blog/.cache/
+blog/.venv/
+blog/_preview/
+
+# Local drafts for review, not published
+_drafts/
+
+# Local instructions for Claude Code, not published
+CLAUDE.md
