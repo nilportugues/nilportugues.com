@@ -199,6 +199,7 @@ nav ul a:hover { color: var(--text); }
 /* Stats */
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 56px; }
 @media (max-width: 760px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .stats { grid-template-columns: 1fr; gap: 10px; } .stat { padding: 16px 18px; } }
 .stat {
   position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px;
   box-shadow: var(--shadow); overflow: hidden;
@@ -230,7 +231,7 @@ p { margin: 0 0 16px; }
 
 /* ---------- Leadership principles ---------- */
 .expertise { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-@media (max-width: 580px) { .expertise { grid-template-columns: 1fr; } }
+@media (max-width: 580px) { .expertise { grid-template-columns: 1fr; } .xcard { padding: 20px; } }
 .xcard {
   position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 24px;
   display: flex; flex-direction: column; gap: 12px; box-shadow: var(--shadow); overflow: hidden;
@@ -289,12 +290,17 @@ p { margin: 0 0 16px; }
 .case-impact ul { padding-left: 16px; }
 .case-impact li { color: var(--text); }
 .case > .chips { padding: 0 20px 18px 22px; }
-@media (max-width: 580px) { .case summary, .case-body, .case > .chips { padding-left: 16px; padding-right: 14px; } }
+@media (max-width: 580px) {
+  .case summary, .case-body, .case > .chips { padding-left: 14px; padding-right: 12px; }
+  .case-body ul, .case-impact ul { padding-left: 16px; }
+  .case-impact { padding: 12px; }
+}
 
 /* ---------- AI ---------- */
 .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: stretch; }
 @media (max-width: 860px) { .ai-grid { grid-template-columns: 1fr; } }
 .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 24px; box-shadow: var(--shadow); }
+@media (max-width: 580px) { .panel { padding: 18px 16px; } }
 .panel h3 { margin: 0 0 14px; font-size: 18px; display: flex; align-items: center; gap: 10px; }
 .panel h3 .xicon { width: 36px; height: 36px; border-radius: 10px; }
 .panel h3 .xicon svg { width: 18px; height: 18px; }
@@ -382,7 +388,7 @@ p { margin: 0 0 16px; }
 .g-axis { display: grid; grid-template-columns: 150px 1fr; gap: 12px; margin-top: 8px; }
 .g-axis .ticks { position: relative; height: 18px; font-family: var(--mono); font-size: 11px; color: var(--subtle); }
 .g-axis .ticks span { position: absolute; transform: translateX(-50%); }
-@media (max-width: 560px) { .g-row, .g-axis { grid-template-columns: 78px 1fr; } .g-row .lbl { font-size: 11.5px; } }
+@media (max-width: 560px) { .gantt { padding: 18px 16px; } .g-row, .g-axis { grid-template-columns: 78px 1fr; } .g-row .lbl { font-size: 11.5px; } }
 
 .jobs { list-style: none; margin: 0; padding: 0; position: relative; }
 .jobs::before { content: ""; position: absolute; left: 23px; top: 10px; bottom: 10px; width: 2px; background: linear-gradient(var(--c-lead), var(--c-ai), var(--c-search), var(--border)); border-radius: 2px; }
@@ -401,6 +407,13 @@ p { margin: 0 0 16px; }
 .job .ctx { margin: 0 0 12px; font-size: 14px; color: var(--muted); padding: 10px 12px; border-radius: 10px; background: var(--surface-2); }
 .job-card > ul { margin: 0 0 4px; padding-left: 18px; font-size: 15px; color: var(--muted); }
 .job-card > ul > li { margin: 6px 0; }
+/* On phones the timeline column costs too much width: drop it and mark each card with its colour instead */
+@media (max-width: 580px) {
+  .jobs::before, .job .mono { display: none; }
+  .job { grid-template-columns: 1fr; gap: 0; padding-bottom: 20px; }
+  .job-card { padding: 18px 16px; border-top: 3px solid var(--c); }
+  .job-card > ul { padding-left: 16px; }
+}
 .job li b { color: var(--text); font-weight: 600; }
 .kpis { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
 .kpi { font-size: 12.5px; font-weight: 600; padding: 4px 10px; border-radius: 999px; color: var(--c); background: color-mix(in srgb, var(--c) 12%, transparent); }
