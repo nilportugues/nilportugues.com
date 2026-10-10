@@ -46,6 +46,13 @@
     }, 700);
   }
 
+  // Remember an explicit language choice so the browser-language redirect respects it
+  document.querySelectorAll('[data-lang]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      try { localStorage.setItem('lang', link.getAttribute('data-lang')); } catch (e) {}
+    });
+  });
+
   // Close the language menu when clicking elsewhere
   document.addEventListener('click', function (e) {
     document.querySelectorAll('.lang-menu[open]').forEach(function (m) {
