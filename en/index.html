@@ -26,9 +26,8 @@
     <a class="brand" href="#">nilportugues<span>.com</span></a>
     <div class="nav-right">
       <ul>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#leadership">Leadership</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#leadership">Leadership</a></li>
         <li><a href="#ai">AI</a></li>
         <li><a href="#lab">Lab</a></li>
       </ul>
@@ -58,7 +57,7 @@
           I combine technical depth in architectural decisions with accountability for <strong>hiring, budget and delivery</strong>.
         </p>
         <div class="links">
-          <a class="btn primary" href="#work">View case studies</a>
+          <a class="btn primary" href="#experience">View experience</a>
           <a class="btn" href="https://www.linkedin.com/in/nilportugues" target="_blank" rel="noopener" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
             LinkedIn
@@ -98,218 +97,6 @@
 </header>
 
 <main>
-  <section id="work">
-    <div class="wrap">
-      <p class="eyebrow">Selected work</p>
-      <h2 class="section-title reveal">Five cases, five areas of leadership</h2>
-      <p class="section-sub reveal">Product growth, billing-critical systems, team creation, quality and AI adoption. For each: the context, the decisions I led and the impact achieved.</p>
-
-      <div class="cases">
-        <article class="case reveal" style="--c: var(--c-lead);">
-          <div class="case-head">
-            <span class="case-num">01</span>
-            <div>
-              <p class="case-co">The Knot Worldwide · Paper</p>
-              <h3>The engineering behind Paper's growth</h3>
-              <p class="case-scope">Commerce platform · Payments · Experimentation · Team building</p>
-            </div>
-          </div>
-          <div class="case-body">
-            <div>
-              <h4>Challenge</h4>
-              <p>Paper needed to move off its Drupal platform and grow its online channel in a category considered to be in decline, with a focus on The Knot and WeddingWire in the US.</p>
-            </div>
-            <div>
-              <h4>What I led</h4>
-              <ul>
-                <li><b>Built the team from scratch:</b> defined the hiring profiles and estimated, with leadership, the budget for people, tools and infrastructure, which I then managed.</li>
-                <li><b>Migration from Drupal to Next.js and TypeScript</b>, the first multi-tenant application shared by The Knot and WeddingWire.</li>
-                <li><b>Checkout rescue:</b> the project was transferred to my team in August 2022, 18 months behind schedule and without checkout or ecommerce tracking in place. We built both in three months and met the December delivery date. Payments run on Stripe and, since 2026, on Klarna, an initiative proposed by the team and launched ahead of Black Friday.</li>
-                <li>An experimentation programme of 8–10 tests a year across the conversion funnel, self-service banner and copy tools for marketing, and a rule-based, automated Google Ads feed.</li>
-                <li><b>European pilot</b> on Bodas.net, Mariages.net and Matrimonio.com: outsourced development, with incident and vendor management under my responsibility until its closure in May 2025, which included decommissioning the European verticals' code.</li>
-              </ul>
-            </div>
-            <div class="case-impact">
-              <h4>Impact</h4>
-              <ul>
-                <li><b>Year-over-year revenue growth</b> in a category considered to be in decline.</li>
-                <li>The checkout remains in production and processes all of Paper's online revenue.</li>
-                <li>Three team members promoted to lead roles.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="chips"><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Stripe</span><span class="chip">Klarna</span><span class="chip">GraphQL</span></div>
-        </article>
-
-        <article class="case reveal" style="--c: var(--c-search);">
-          <div class="case-head">
-            <span class="case-num">02</span>
-            <div>
-              <p class="case-co">Trovit · Classifieds search</p>
-              <h3>Making the systems billing depended on predictable</h3>
-              <p class="case-scope">Billing-critical tracking · Kafka · Email delivery · Search APIs</p>
-            </div>
-          </div>
-          <div class="case-body">
-            <div>
-              <h4>Challenge</h4>
-              <p>Tracking underpinned the billing model. Events were produced in PHP without strict typing, every Kafka message was typed manually and, under company policy, the Java consumer performed no validation. Errors reached the dataset and required manual recomputation through ad hoc scripts.</p>
-            </div>
-            <div>
-              <h4>What I led</h4>
-              <ul>
-                <li><b>Rebuilt the tracking API and moved validation upstream:</b> a Java integration suite, embedded in the deployment pipeline, that ran the consumer and simulated every message across the flow (PHP, Kafka, Kafka Streams in Java and Scala, data lake) before release to production.</li>
-                <li><b>Rebuilt the company-wide email service</b>, handling around 100,000 emails a day: an unmaintainable legacy system, with IPs on spam blacklists and no defined SLA. I established SLAs for delivery speed and machine and IP usage.</li>
-                <li><b>Search API for every vertical across 57 countries</b>, with typical traffic of 30,000 requests per minute. I set a sub-100 ms latency target: in-memory endpoints responding in ~1 ms, caching for the rest, and Grafana monitoring by endpoint and country.</li>
-                <li>Decoupled the frontends from the legacy search engine, migrating from PHP to Next.js and introducing quality and SEO tests where none existed.</li>
-              </ul>
-            </div>
-            <div class="case-impact">
-              <h4>Impact</h4>
-              <ul>
-                <li><b>Manual recomputations fully eliminated</b>, with no further billing-data incidents.</li>
-                <li><b>No further IP blacklisting</b>, with all emails delivered within SLA.</li>
-                <li>Full traceability of traffic peaks by endpoint and country.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="chips"><span class="chip">PHP</span><span class="chip">Kafka Streams</span><span class="chip">Java</span><span class="chip">Scala</span><span class="chip">Grafana</span></div>
-        </article>
-
-        <article class="case reveal" style="--c: var(--c-data);">
-          <div class="case-head">
-            <span class="case-num">03</span>
-            <div>
-              <p class="case-co">Adsmurai · Marketing technology</p>
-              <h3>Identifying the need for a data team, creating it and building the data lake</h3>
-              <p class="case-scope">Influence without authority · Data platform · Ad platforms</p>
-            </div>
-          </div>
-          <div class="case-body">
-            <div>
-              <h4>Challenge</h4>
-              <p>Campaign data from Facebook, Instagram, TikTok and Snapchat was fragmented, three teams repeatedly reimplemented the same ingestion, and the existing Data team, focused on computer vision for feed labelling, operated in isolation.</p>
-            </div>
-            <div>
-              <h4>What I led</h4>
-              <ul>
-                <li><b>Made the case to leadership for a Data Guild:</b> a four-person team that integrated the existing Data team.</li>
-                <li><b>Built a data lake with Airflow and Snowflake</b> that centralised campaign data from all four platforms. Snowflake was selected by other stakeholders; I designed and implemented the pipelines.</li>
-                <li>Decided to migrate the UGC project from Vert.x to Spring Boot for its simplicity and better documentation, and introduced Elasticsearch.</li>
-                <li>Delivered with a five-person team operating on a startup model.</li>
-              </ul>
-            </div>
-            <div class="case-impact">
-              <h4>Impact</h4>
-              <ul>
-                <li><b>Three teams stopped duplicating ingestion</b> and moved to a single source of truth.</li>
-                <li>The foundation of Ads Composer, a product that provides clients with metrics and identifies the optimal segments for investment.</li>
-                <li>Faster, more reliable delivery of data projects.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="chips"><span class="chip">Airflow</span><span class="chip">Snowflake</span><span class="chip">Spring Boot</span><span class="chip">Cassandra</span><span class="chip">Druid</span></div>
-        </article>
-
-        <article class="case reveal" style="--c: var(--c-ai);">
-          <div class="case-head">
-            <span class="case-num">04</span>
-            <div>
-              <p class="case-co">The Knot Worldwide · since 2025</p>
-              <h3>Embedding AI in the team's operating model: from software engineers to product engineers</h3>
-              <p class="case-scope">Culture change · Quality · Productivity</p>
-            </div>
-          </div>
-          <div class="case-body">
-            <div>
-              <h4>Challenge</h4>
-              <p>Ensure AI transforms how the entire team operates, beyond individual productivity.</p>
-            </div>
-            <div>
-              <h4>What I led</h4>
-              <ul>
-                <li><b>A shift in team mindset</b> from software engineers to product engineers.</li>
-                <li>Initiative plans, epics and story maps derived from PRDs, and AI-generated reporting.</li>
-                <li><b>Errors resolved as soon as they are detected</b>, with E2E coverage extended through AI-generated tests.</li>
-              </ul>
-            </div>
-            <div class="case-impact">
-              <h4>Impact</h4>
-              <ul>
-                <li><b>All annual objectives met</b>, with a higher volume of experiments.</li>
-                <li><b>Alerts and on-call rotations eliminated.</b></li>
-                <li>Improved code quality, validated by Snyk and other analysis tools.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="chips"><span class="chip">AI agents</span><span class="chip">E2E testing</span><span class="chip">Snyk</span></div>
-        </article>
-
-        <article class="case reveal" style="--c: var(--c-pay);">
-          <div class="case-head">
-            <span class="case-num">05</span>
-            <div>
-              <p class="case-co">The Knot Worldwide · Ecommerce</p>
-              <h3>Introducing automated QA and transforming the ecommerce area's ways of working</h3>
-              <p class="case-scope">Quality · Culture change · Impact beyond the team</p>
-            </div>
-          </div>
-          <div class="case-body">
-            <div>
-              <h4>Challenge</h4>
-              <p>QA across the ecommerce area was manual. The Paper team was being built through new hires and had no automated testing workflow.</p>
-            </div>
-            <div>
-              <h4>What I led</h4>
-              <ul>
-                <li><b>Introduced an automated QA flow with E2E tests</b>, the first in the ecommerce area.</li>
-                <li>Embedded it in the team's workflow from its formation.</li>
-                <li>The team's QA engineer led the automation effort and progressed from associate to QA Lead.</li>
-              </ul>
-            </div>
-            <div class="case-impact">
-              <h4>Impact</h4>
-              <ul>
-                <li><b>Automated testing established as standard practice</b> for the development team from day one.</li>
-                <li><b>The new quality approach adopted across the ecommerce area</b>, beyond the Paper team.</li>
-                <li>QA engineer promoted from associate to QA Lead.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="leadership" class="alt">
-    <div class="wrap">
-      <p class="eyebrow">How I lead</p>
-      <h2 class="section-title reveal">Engineering focused on business outcomes</h2>
-      <p class="section-sub reveal">Three principles I apply to every team I lead.</p>
-
-      <div class="expertise">
-        <article class="xcard reveal" style="--c: var(--c-lead);">
-          <div class="xicon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><circle cx="17.5" cy="9" r="2.5"/><path d="M16.5 14.6c2.6.2 4.4 1.9 5 5.4"/></svg></div>
-          <span class="tag-top">01 · OWNERSHIP</span>
-          <h3>Teams accountable for outcomes</h3>
-          <p>I assign teams complete problems rather than isolated tasks, which enables them to go beyond the initial scope. The Klarna integration was not on the roadmap: the team identified it, we made the decision jointly and it launched ahead of Black Friday.</p>
-        </article>
-        <article class="xcard reveal" style="--c: var(--c-pay);">
-          <div class="xicon"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
-          <span class="tag-top">02 · GROWTH</span>
-          <h3>Developing people and future leaders</h3>
-          <p>Clear expectations and real responsibility from day one. Three people on my team have grown into lead roles. When our QA engineer joined, we set the move from manual to automated testing as a core objective; today they are QA Lead.</p>
-        </article>
-        <article class="xcard reveal" style="--c: var(--c-arch);">
-          <div class="xicon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="8.5" y="14" width="7" height="7" rx="1.5"/><path d="M6.5 10v2h11v-2M12 12v2"/></svg></div>
-          <span class="tag-top">03 · DECISIONS</span>
-          <h3>Technical decisions driven by business needs</h3>
-          <p>I prioritise the problems with financial impact and resolve them within existing constraints. At Trovit, company policy prevented validation in the Java consumer; I moved validation into the deployment pipeline, eliminating manual billing corrections.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <section id="experience">
     <div class="wrap">
       <p class="eyebrow">Experience</p>
@@ -347,14 +134,88 @@
             <ul>
               <li><b>Engineering lead for Paper:</b> accountable for the prioritisation, technical direction and delivery of all its engineering initiatives.</li>
               <li><b>Built the team from scratch</b> (Node.js + React and PHP/Drupal + React/Node): defined hiring profiles, estimated and managed the budget with leadership, and ran the full hiring lifecycle.</li>
-              <li><b>Paper for The Knot and WeddingWire in the US</b>, migrated from Drupal to Next.js as the first multi-tenant application shared by both brands.</li>
-              <li><b>European pilot</b> on Bodas.net, Mariages.net and Matrimonio.com: development outsourced, with incidents and the vendor relationship under my responsibility, until its closure in May 2025, including decommissioning the European verticals' code.</li>
-              <li><b>Paper project rescue:</b> transferred to my team in August 2022, 18 months behind schedule and without checkout or ecommerce tracking; both were built in three months and delivered in December, on the committed date. Payments on Stripe and, since 2026, Klarna.</li>
-              <li>An experimentation programme of 8–10 tests a year across the funnel, self-service marketing tools and an automated Google Ads feed.</li>
               <li>Stakeholder reporting, vendor management and alignment with the Data team.</li>
               <li><b>Three team members promoted to lead roles</b> (frontend, backend and QA). OKRs, performance reviews, salary reviews and career paths.</li>
-              <li><b>AI-augmented management (since 2025):</b> planning, AI-generated E2E tests and docs kept in sync with code.</li>
             </ul>
+            <div class="job-cases">
+            <details class="case" style="--c: var(--c-lead);" open>
+              <summary><span class="case-label">Case study</span><span class="case-title">The engineering behind Paper's growth</span><span class="case-scope">Commerce platform · Payments · Experimentation · Team building</span></summary>
+            <div class="case-body">
+              <div>
+                <h4>Challenge</h4>
+                <p>Paper needed to move off its Drupal platform and grow its online channel in a category considered to be in decline, with a focus on The Knot and WeddingWire in the US.</p>
+              </div>
+              <div>
+                <h4>What I led</h4>
+                <ul>
+                  <li><b>Migration from Drupal to Next.js and TypeScript</b>, the first multi-tenant application shared by The Knot and WeddingWire.</li>
+                  <li><b>Checkout rescue:</b> the project was transferred to my team in August 2022, 18 months behind schedule and without checkout or ecommerce tracking in place. We built both in three months and met the December delivery date. Payments run on Stripe and, since 2026, on Klarna, an initiative proposed by the team and launched ahead of Black Friday.</li>
+                  <li>An experimentation programme of 8–10 tests a year across the conversion funnel, self-service banner and copy tools for marketing, and a rule-based, automated Google Ads feed.</li>
+                  <li><b>European pilot</b> on Bodas.net, Mariages.net and Matrimonio.com: outsourced development, with incident and vendor management under my responsibility until its closure in May 2025, which included decommissioning the European verticals' code.</li>
+                </ul>
+              </div>
+              <div class="case-impact">
+                <h4>Impact</h4>
+                <ul>
+                  <li><b>Year-over-year revenue growth</b> in a category considered to be in decline.</li>
+                  <li>The checkout remains in production and processes all of Paper's online revenue.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="chips"><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Stripe</span><span class="chip">Klarna</span><span class="chip">GraphQL</span></div>
+            </details>
+            <details class="case" style="--c: var(--c-pay);">
+              <summary><span class="case-label">Case study</span><span class="case-title">Introducing automated QA and transforming the ecommerce area's ways of working</span><span class="case-scope">Quality · Culture change · Impact beyond the team</span></summary>
+            <div class="case-body">
+              <div>
+                <h4>Challenge</h4>
+                <p>QA across the ecommerce area was manual. The Paper team was being built through new hires and had no automated testing workflow.</p>
+              </div>
+              <div>
+                <h4>What I led</h4>
+                <ul>
+                  <li><b>Introduced an automated QA flow with E2E tests</b>, the first in the ecommerce area.</li>
+                  <li>Embedded it in the team's workflow from its formation.</li>
+                  <li>The team's QA engineer led the automation effort and progressed from associate to QA Lead.</li>
+                </ul>
+              </div>
+              <div class="case-impact">
+                <h4>Impact</h4>
+                <ul>
+                  <li><b>Automated testing established as standard practice</b> for the development team from day one.</li>
+                  <li><b>The new quality approach adopted across the ecommerce area</b>, beyond the Paper team.</li>
+                  <li>QA engineer promoted from associate to QA Lead.</li>
+                </ul>
+              </div>
+            </div>
+            </details>
+            <details class="case" style="--c: var(--c-ai);">
+              <summary><span class="case-label">Case study</span><span class="case-title">Embedding AI in the team's operating model: from software engineers to product engineers</span><span class="case-scope">Culture change · Quality · Productivity</span></summary>
+            <div class="case-body">
+              <div>
+                <h4>Challenge</h4>
+                <p>Ensure AI transforms how the entire team operates, beyond individual productivity.</p>
+              </div>
+              <div>
+                <h4>What I led</h4>
+                <ul>
+                  <li><b>A shift in team mindset</b> from software engineers to product engineers.</li>
+                  <li>Initiative plans, epics and story maps derived from PRDs, and AI-generated reporting.</li>
+                  <li><b>Errors resolved as soon as they are detected</b>, with E2E coverage extended through AI-generated tests.</li>
+                </ul>
+              </div>
+              <div class="case-impact">
+                <h4>Impact</h4>
+                <ul>
+                  <li><b>All annual objectives met</b>, with a higher volume of experiments.</li>
+                  <li><b>Alerts and on-call rotations eliminated.</b></li>
+                  <li>Improved code quality, validated by Snyk and other analysis tools.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="chips"><span class="chip">AI agents</span><span class="chip">E2E testing</span><span class="chip">Snyk</span></div>
+            </details>
+            </div>
           </div>
         </li>
         <li class="job reveal" style="--c: var(--accent);">
@@ -369,10 +230,38 @@
               <li><b>Led the refactoring of the Java and PHP codebases</b> of MediaPlanner and Ads Composer, applying SOLID and DDD.</li>
               <li><b>Introduced Elasticsearch</b> as the core search and analytics engine: index design and search scripts.</li>
               <li>New APIs powered by ETL pipelines with Kafka, Cassandra, Spark and Druid, monitored with Prometheus and InfluxDB.</li>
-              <li><b>Proposed and established the Data Guild</b> (4 people, integrating the existing Data team) and built the Airflow and Snowflake data lake used by three teams.</li>
               <li>Front-end migration to React + TypeScript, with Jest tests and a Storybook design system.</li>
               <li><b>Hiring</b>, 1:1s, feedback and OKRs for a five-person team.</li>
             </ul>
+            <div class="job-cases">
+            <details class="case" style="--c: var(--c-data);">
+              <summary><span class="case-label">Case study</span><span class="case-title">Identifying the need for a data team, creating it and building the data lake</span><span class="case-scope">Influence without authority · Data platform · Ad platforms</span></summary>
+            <div class="case-body">
+              <div>
+                <h4>Challenge</h4>
+                <p>Campaign data from Facebook, Instagram, TikTok and Snapchat was fragmented, three teams repeatedly reimplemented the same ingestion, and the existing Data team, focused on computer vision for feed labelling, operated in isolation.</p>
+              </div>
+              <div>
+                <h4>What I led</h4>
+                <ul>
+                  <li><b>Made the case to leadership for a Data Guild:</b> a four-person team that integrated the existing Data team.</li>
+                  <li><b>Built a data lake with Airflow and Snowflake</b> that centralised campaign data from all four platforms. Snowflake was selected by other stakeholders; I designed and implemented the pipelines.</li>
+                  <li>Decided to migrate the UGC project from Vert.x to Spring Boot for its simplicity and better documentation.</li>
+                  <li>Delivered with a five-person team operating on a startup model.</li>
+                </ul>
+              </div>
+              <div class="case-impact">
+                <h4>Impact</h4>
+                <ul>
+                  <li><b>Three teams stopped duplicating ingestion</b> and moved to a single source of truth.</li>
+                  <li>The foundation of Ads Composer, a product that provides clients with metrics and identifies the optimal segments for investment.</li>
+                  <li>Faster, more reliable delivery of data projects.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="chips"><span class="chip">Airflow</span><span class="chip">Snowflake</span><span class="chip">Spring Boot</span><span class="chip">Cassandra</span><span class="chip">Druid</span></div>
+            </details>
+            </div>
           </div>
         </li>
         <li class="job reveal" style="--c: var(--c-search);">
@@ -383,11 +272,38 @@
             <div class="kpis"><span class="kpi">Search and tracking</span><span class="kpi">57 portals</span><span class="kpi">3 verticals</span></div>
             <p class="ctx">Global classified-ads search engine aggregating listings from thousands of sources.</p>
             <ul>
-              <li><b>Led the search API</b> for every vertical in 57 country portals (~30,000 requests a minute) with a sub-100 ms target, moving from PHP 5 to 7 with DDD.</li>
-              <li><b>Rebuilt the billing-critical tracking API</b> and moved validation into the deployment pipeline, fully eliminating manual recomputations.</li>
-              <li><b>Rebuilt the company-wide email service</b> (~100,000 emails a day): no further IP blacklisting, with all emails delivered within SLA.</li>
+              <li><b>Owned the search and tracking APIs</b>, business-critical systems, across 57 country portals and 3 verticals, migrating from PHP 5 to 7 with DDD.</li>
               <li><b>Hiring</b>, 1:1s, feedback and biannual performance reviews for the team.</li>
             </ul>
+            <div class="job-cases">
+            <details class="case" style="--c: var(--c-search);">
+              <summary><span class="case-label">Case study</span><span class="case-title">Making the systems billing depended on predictable</span><span class="case-scope">Billing-critical tracking · Kafka · Email delivery · Search APIs</span></summary>
+            <div class="case-body">
+              <div>
+                <h4>Challenge</h4>
+                <p>Tracking underpinned the billing model. Events were produced in PHP without strict typing, every Kafka message was typed manually and, under company policy, the Java consumer performed no validation. Errors reached the dataset and required manual recomputation through ad hoc scripts.</p>
+              </div>
+              <div>
+                <h4>What I led</h4>
+                <ul>
+                  <li><b>Rebuilt the tracking API and moved validation upstream:</b> a Java integration suite, embedded in the deployment pipeline, that ran the consumer and simulated every message across the flow (PHP, Kafka, Kafka Streams in Java and Scala, data lake) before release to production.</li>
+                  <li><b>Rebuilt the company-wide email service</b>, handling around 100,000 emails a day: an unmaintainable legacy system, with IPs on spam blacklists and no defined SLA. I established SLAs for delivery speed and machine and IP usage.</li>
+                  <li><b>Search API for every vertical across 57 countries</b>, with typical traffic of 30,000 requests per minute. I set a sub-100 ms latency target: in-memory endpoints responding in ~1 ms, caching for the rest, and Grafana monitoring by endpoint and country.</li>
+                  <li>Decoupled the frontends from the legacy search engine, migrating from PHP to Next.js and introducing quality and SEO tests where none existed.</li>
+                </ul>
+              </div>
+              <div class="case-impact">
+                <h4>Impact</h4>
+                <ul>
+                  <li><b>Manual recomputations fully eliminated</b>, with no further billing-data incidents.</li>
+                  <li><b>No further IP blacklisting</b>, with all emails delivered within SLA.</li>
+                  <li>Full traceability of traffic peaks by endpoint and country.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="chips"><span class="chip">PHP</span><span class="chip">Kafka Streams</span><span class="chip">Java</span><span class="chip">Scala</span><span class="chip">Grafana</span></div>
+            </details>
+            </div>
           </div>
         </li>
         <li class="job reveal" style="--c: var(--c-pay);">
@@ -408,7 +324,36 @@
     </div>
   </section>
 
-  <section id="ai" class="alt">
+  <section id="leadership" class="alt">
+    <div class="wrap">
+      <p class="eyebrow">How I lead</p>
+      <h2 class="section-title reveal">Engineering focused on business outcomes</h2>
+      <p class="section-sub reveal">Three principles I apply to every team I lead.</p>
+
+      <div class="expertise">
+        <article class="xcard reveal" style="--c: var(--c-lead);">
+          <div class="xicon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><circle cx="17.5" cy="9" r="2.5"/><path d="M16.5 14.6c2.6.2 4.4 1.9 5 5.4"/></svg></div>
+          <span class="tag-top">01 · OWNERSHIP</span>
+          <h3>Teams accountable for outcomes</h3>
+          <p>I assign teams complete problems rather than isolated tasks, which enables them to go beyond the initial scope. The Klarna integration was not on the roadmap: the team identified it, we made the decision jointly and it launched ahead of Black Friday.</p>
+        </article>
+        <article class="xcard reveal" style="--c: var(--c-pay);">
+          <div class="xicon"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
+          <span class="tag-top">02 · GROWTH</span>
+          <h3>Developing people and future leaders</h3>
+          <p>Clear expectations and real responsibility from day one. Three people on my team have grown into lead roles. When our QA engineer joined, we set the move from manual to automated testing as a core objective; today they are QA Lead.</p>
+        </article>
+        <article class="xcard reveal" style="--c: var(--c-arch);">
+          <div class="xicon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="8.5" y="14" width="7" height="7" rx="1.5"/><path d="M6.5 10v2h11v-2M12 12v2"/></svg></div>
+          <span class="tag-top">03 · DECISIONS</span>
+          <h3>Technical decisions driven by business needs</h3>
+          <p>I prioritise the problems with financial impact and resolve them within existing constraints. At Trovit, company policy prevented validation in the Java consumer; I moved validation into the deployment pipeline, eliminating manual billing corrections.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="ai">
     <div class="wrap">
       <p class="eyebrow">Technical practice</p>
       <h2 class="section-title reveal">Applied AI</h2>
@@ -468,7 +413,7 @@
     </div>
   </section>
 
-  <section id="lab">
+  <section id="lab" class="alt">
     <div class="wrap">
       <p class="eyebrow">Lab</p>
       <h2 class="section-title reveal">Side projects</h2>
@@ -517,7 +462,7 @@
     </div>
   </section>
 
-  <section id="opensource" class="alt">
+  <section id="opensource">
     <div class="wrap">
       <div class="oss-grid">
         <div class="reveal">
@@ -538,7 +483,7 @@
     </div>
   </section>
 
-  <section id="stack">
+  <section id="stack" class="alt">
     <div class="wrap">
       <p class="eyebrow">Stack</p>
       <h2 class="section-title reveal">Technologies</h2>
@@ -553,7 +498,7 @@
     </div>
   </section>
 
-  <section id="education" class="alt">
+  <section id="education">
     <div class="wrap">
       <div class="edu-grid">
         <div class="ecard reveal">
@@ -576,7 +521,7 @@
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="alt">
     <div class="wrap">
       <div class="cta reveal">
         <p class="eyebrow">Contact</p>
