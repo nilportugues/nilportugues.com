@@ -89,13 +89,35 @@ nav ul a { text-decoration: none; color: var(--muted); transition: color .15s; }
 nav ul a:hover { color: var(--text); }
 .nav-right { display: flex; align-items: center; gap: 8px; }
 .nav-right ul { margin-right: 12px; }
-.lang-switch, .theme-toggle {
+.theme-toggle {
   font-family: var(--mono); font-size: 12px; text-decoration: none; color: var(--muted);
   border: 1px solid var(--border); border-radius: 8px; height: 32px; min-width: 32px; padding: 0 10px;
   display: inline-flex; align-items: center; justify-content: center; background: var(--surface); cursor: pointer;
 }
 .theme-toggle { padding: 0; }
-.lang-switch:hover, .theme-toggle:hover { color: var(--text); border-color: var(--accent); }
+.lang-menu { position: relative; }
+.lang-menu summary {
+  list-style: none; cursor: pointer; font-size: 13px; color: var(--muted);
+  border: 1px solid var(--border); border-radius: 8px; height: 32px; padding: 0 28px 0 12px;
+  display: inline-flex; align-items: center; background: var(--surface); position: relative;
+}
+.lang-menu summary::-webkit-details-marker { display: none; }
+.lang-menu summary::after {
+  content: ""; position: absolute; right: 11px; top: 11px; width: 6px; height: 6px;
+  border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg);
+}
+.lang-menu[open] summary::after { top: 14px; transform: rotate(-135deg); }
+.lang-menu summary:hover, .lang-menu[open] summary { color: var(--text); border-color: var(--accent); }
+.lang-menu ul {
+  position: absolute; right: 0; top: calc(100% + 6px); min-width: 140px; margin: 0; padding: 6px; list-style: none;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow);
+  display: block; font-size: 14px;
+}
+.lang-menu li a, .lang-menu li span { display: block; padding: 7px 10px; border-radius: 6px; text-decoration: none; }
+.lang-menu li a { color: var(--muted); }
+.lang-menu li a:hover { color: var(--text); background: var(--surface-2); }
+.lang-menu li span { color: var(--text); font-weight: 600; }
+.theme-toggle:hover { color: var(--text); border-color: var(--accent); }
 @media (max-width: 760px) { nav ul { display: none; } }
 
 /* ---------- Hero ---------- */

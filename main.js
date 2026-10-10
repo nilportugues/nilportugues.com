@@ -46,6 +46,13 @@
     }, 700);
   }
 
+  // Close the language menu when clicking elsewhere
+  document.addEventListener('click', function (e) {
+    document.querySelectorAll('.lang-menu[open]').forEach(function (m) {
+      if (!m.contains(e.target)) m.removeAttribute('open');
+    });
+  });
+
   // Jumping to a section shouldn't make content pop in after landing
   function revealAll() { root.classList.add('no-reveal'); }
   if (location.hash) revealAll();
