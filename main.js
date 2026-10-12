@@ -56,4 +56,12 @@
     }, { threshold: 0.18 });
     targets.forEach(function (el) { io.observe(el); });
   }
+
+  // Pause the hero animations when they are not visible
+  var hero = document.querySelector('.hero');
+  if (hero && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      hero.classList.toggle('offscreen', !entries[0].isIntersecting);
+    }).observe(hero);
+  }
 })();
