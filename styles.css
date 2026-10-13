@@ -477,3 +477,57 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   .blob, .hero h1 em, .pipe .link::after { animation: none !important; }
   .xcard:hover { transform: none; }
 }
+
+/* ---------- Motion (only when html.motion is set: motion allowed and JS on) ---------- */
+:root { --ease-out: cubic-bezier(.16, 1, .3, 1); }
+
+/* Hero intro: name, headline words, lead and buttons arrive in sequence, from a soft blur */
+@keyframes heroIn { from { opacity: 0; transform: translateY(18px); filter: blur(6px); } }
+@keyframes fadeIn { from { opacity: 0; } }
+.motion .hero .name { animation: heroIn 1s var(--ease-out) .1s backwards; }
+.motion .hero h1:not(.split) { visibility: hidden; }
+.motion .hero h1 span.w { display: inline-block; animation: heroIn 1.1s var(--ease-out) calc(.25s + var(--wi) * 70ms) backwards; }
+.motion .hero h1 em.w { animation: heroIn 1.2s var(--ease-out) calc(.25s + var(--wi) * 70ms) backwards, shift 9s ease-in-out 1.5s infinite alternate; }
+.motion .hero .lead { animation: heroIn 1.1s var(--ease-out) .75s backwards; }
+.motion .hero .links { animation: heroIn 1.1s var(--ease-out) .9s backwards; }
+.motion .hero .scope { animation: fadeIn 1.2s ease .9s backwards; }
+.motion .blob { animation: float 18s ease-in-out infinite, fadeIn 2s ease backwards; }
+
+/* Scroll reveals: a short rise; elements arriving together are staggered */
+@keyframes rise { from { opacity: 0; transform: translateY(20px); } }
+@keyframes riseScale { from { opacity: 0; transform: translateY(28px) scale(.98); } }
+.motion .reveal { transition: none; }
+.motion .reveal.in { animation: rise .9s var(--ease-out) calc(var(--i, 0) * 90ms) backwards; }
+.motion :is(.xcard, .ptype, .panel, .pipeline, .cta, .case).reveal.in { animation-name: riseScale; }
+.motion .xcard.reveal { transition: transform .25s, box-shadow .25s; }
+.motion .stat.reveal.in { animation-delay: calc(.2s + var(--i, 0) * 90ms); }
+
+/* Section titles: words slide up from behind a mask */
+.motion .section-title .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .1em; margin-bottom: -.1em; }
+.motion .section-title .w > span { display: inline-block; transform: translateY(110%); }
+.motion .in .w > span, .no-reveal .section-title .w > span {
+  transform: none; transition: transform 1s var(--ease-out) calc(var(--wi) * 60ms);
+}
+.motion .section-title.reveal { opacity: 1; transform: none; animation: none; }
+
+/* Career and open-source bars grow one after another */
+.g-row:nth-child(2) .g-bar { transition-delay: .12s; }
+.g-row:nth-child(3) .g-bar { transition-delay: .24s; }
+.g-row:nth-child(4) .g-bar { transition-delay: .36s; }
+.g-row:nth-child(5) .g-bar { transition-delay: .48s; }
+.bar-row:nth-child(2) .bar i { transition-delay: .1s; }
+.bar-row:nth-child(3) .bar i { transition-delay: .2s; }
+.bar-row:nth-child(4) .bar i { transition-delay: .3s; }
+.bar-row:nth-child(5) .bar i { transition-delay: .4s; }
+.bar-row:nth-child(n+6) .bar i { transition-delay: .5s; }
+.big-number { font-variant-numeric: tabular-nums; }
+
+/* Buttons: a soft press */
+.btn { transition: border-color .15s, background-color .15s, color .15s, transform .2s var(--ease-out), box-shadow .2s; }
+.btn:active { transform: scale(.96); }
+
+.no-reveal .reveal, .no-reveal .reveal.in { animation: none !important; }
+
+@media print {
+  .section-title .w > span { transform: none !important; }
+}
